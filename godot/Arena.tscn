@@ -622,6 +622,7 @@ tile_set = ExtResource("14_m8h0s")
 physics_interpolation_mode = 1
 position = Vector2(192, 40)
 zoom = Vector2(3.4, 3.4)
+process_callback = 0
 limit_enabled = false
 editor_draw_limits = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cr14f5om1a0if"]
+[gd_scene load_steps=14 format=3 uid="uid://cr14f5om1a0if"]
 
 [ext_resource type="Script" uid="uid://ccgo1gwgtccaj" path="res://godot/scripts/sign_in_menu.gd" id="1_1jdwq"]
 [ext_resource type="Texture2D" uid="uid://dq8xe0fpqsci1" path="res://assets/BG_ICONS/background.jpg" id="2_hmgtq"]
@@ -9,13 +9,6 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sraid"]
 texture = ExtResource("2_hmgtq")
 modulate_color = Color(1, 1, 1, 0.486275)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sraid"]
-bg_color = Color(0, 0, 0, 0.352941)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akivp"]
 bg_color = Color(0, 0, 0, 1)
@@ -57,10 +50,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -285.5
-offset_top = -62.5
-offset_right = 285.5
-offset_bottom = 62.5
+offset_left = -268.0
+offset_top = -97.0
+offset_right = 303.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -79,23 +72,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 9
 
-[node name="fillbg" type="Panel" parent="."]
-offset_left = 328.0
-offset_top = 42.0
-offset_right = 832.0
-offset_bottom = 603.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_sraid")
-
 [node name="SignUpMenu" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -187.5
-offset_right = 59.0
-offset_bottom = 187.5
+offset_left = -200.0
+offset_top = -242.0
+offset_right = 200.0
+offset_bottom = 271.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30

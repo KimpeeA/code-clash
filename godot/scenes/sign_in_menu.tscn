@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dh0d1emcf7ehm"]
+[gd_scene load_steps=14 format=3 uid="uid://dh0d1emcf7ehm"]
 
 [ext_resource type="Script" uid="uid://ccgo1gwgtccaj" path="res://godot/scripts/sign_in_menu.gd" id="1_sg6uc"]
 [ext_resource type="Texture2D" uid="uid://dq8xe0fpqsci1" path="res://assets/BG_ICONS/background.jpg" id="2_knubq"]
@@ -9,13 +9,6 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sraid"]
 texture = ExtResource("2_knubq")
 modulate_color = Color(1, 1, 1, 0.486275)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sraid"]
-bg_color = Color(0, 0, 0, 0.352941)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akivp"]
 bg_color = Color(0, 0, 0, 1)
@@ -78,13 +71,6 @@ text = "CODE CLASH"
 horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 9
-
-[node name="fillbg" type="Panel" parent="."]
-offset_left = 328.0
-offset_top = 42.0
-offset_right = 832.0
-offset_bottom = 603.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_sraid")
 
 [node name="SignInMenu" type="VBoxContainer" parent="."]
 anchors_preset = 8
