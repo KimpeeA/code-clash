@@ -4,13 +4,13 @@ extends State
 
 # This function is called when the state enters
 # XSM enters the root first, the the children
-func _on_enter(_args) -> void:
+func _on_enter(args) -> void:
 	pass
 
 
 # This function is called just after the state enters
 # XSM after_enters the children first, then the parent
-func _after_enter(_args) -> void:
+func _after_enter(args) -> void:
 	pass
 
 
@@ -28,13 +28,13 @@ func _after_update(_delta: float) -> void:
 
 # This function is called before the State exits
 # XSM before_exits the root first, then the children
-func _before_exit(_args) -> void:
+func _before_exit(args) -> void:
 	pass
 
 
 # This function is called when the State exits
 # XSM exits the children first, then the root
-func _on_exit(_args) -> void:
+func _on_exit(args) -> void:
 	pass
 
 

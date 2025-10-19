@@ -37,13 +37,14 @@ class_name State
 # Your State script can implement those abstract functions:
 # Additionnal functions will be available in other State Types
 #
-#  func _on_enter() -> void:
-#  func _after_enter() -> void:
-#  func _on_update(_delta) -> void:
-#  func _after_update(_delta) -> void:
-#  func _before_exit() -> void:
-#  func _on_exit() -> void:
-#  func _on_timeout(_name) -> void:
+#  func _on_enter(_args) -> void
+#  func _after_enter(_args) -> void
+#  func _on_update(_delta: float) -> void
+#  func _after_update(_delta: float) -> void
+#  func _before_exit(_args) -> void
+#  func _on_exit(_args) -> void
+#  func _state_timeout() -> void
+#  func _on_timeout(_name) -> void
 #
 # In your scripts, you can call the public functions:
 # Additionnal functions will be available in other State Types
