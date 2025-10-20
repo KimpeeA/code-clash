@@ -5,6 +5,7 @@ extends EntityState
 
 func _on_enter(args) -> void:
 	super(args)
+	_agent.set_animation(&"idle")
 
 
 func _on_update(_delta: float) -> void:

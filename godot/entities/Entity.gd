@@ -7,6 +7,7 @@ var _health: float = 100.0
 @export var _run_button: Button
 @export var _stats: EntityStats
 
+@onready var _anim_player: AnimationPlayer = $AnimationPlayer
 @onready var _anim_tree: AnimationTree = $AnimationTree
 @onready var _anim_tree_fsm: AnimationNodeStateMachinePlayback = _anim_tree["parameters/playback"]
 @onready var _sprite: AnimatedSprite2D = $Sprite
@@ -26,7 +27,9 @@ var _health: float = 100.0
 
 var _mouse_entered := false
 
-var _facing_direction := 1.0
+var _facing_direction := 1.0:
+	set(value):
+		_facing_direction = sign(value)
 
 
 func _ready() -> void:
@@ -62,3 +65,21 @@ func _on_hurt_box_area_entered(area: HitBox) -> void:
 
 	if area is HitBox:
 		take_damage(area.damage)
+
+
+func set_animation(animation_name: StringName) -> void:
+	if _anim_player.current_animation == animation_name:
+		return
+
+	_anim_player.play(animation_name)
+
+
+func direction_change(new_direction: float) -> void:
+	if is_equal_approx(_facing_direction, new_direction):
+		return
+
+	if is_zero_approx(new_direction):
+		return
+
+	_facing_direction = new_direction
+	_sprite.scale.x = new_direction

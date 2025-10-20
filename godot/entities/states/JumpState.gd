@@ -9,6 +9,7 @@ var _jump_force := 0.0  # positive = upward
 
 func _on_enter(args) -> void:
 	super(args)
+	_agent.set_animation(&"jump")
 
 	_jump_force = float(_args.get("jump_force", _default_jump_force))
 

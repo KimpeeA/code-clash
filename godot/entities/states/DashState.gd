@@ -7,12 +7,12 @@ extends EntityState
 
 var _dash_add := 0.0  # how much extra speed to apply
 var _decel_along := 0.0  # decay rate of dash_add
-var _dir := 1
 var _previous_velocity := 0.0
 
 
 func _on_enter(args) -> void:
 	super(args)
+	_agent.set_animation(&"dash")
 
 	var distance = float(_args.get("distance", _default_distance))
 	var duration = float(_args.get("duration", _default_duration))
@@ -21,7 +21,6 @@ func _on_enter(args) -> void:
 		return
 
 	_previous_velocity = _agent.velocity.x
-	_dir = sign(_agent._facing_direction)
 
 	# calculate the dash “boost” so it covers the distance in duration
 	_dash_add = (2.0 * distance) / duration
@@ -32,7 +31,7 @@ func _on_enter(args) -> void:
 
 func _on_update(delta: float) -> void:
 	# total horizontal velocity = previous velocity + dash boost
-	_agent.velocity.x = _previous_velocity + _dir * _dash_add
+	_agent.velocity.x = _previous_velocity + _agent._facing_direction * _dash_add
 
 	# decay dash_add
 	_dash_add -= _decel_along * delta

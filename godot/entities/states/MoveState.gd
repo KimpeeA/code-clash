@@ -9,6 +9,7 @@ var _speed := 0.0
 
 func _on_enter(args) -> void:
 	super(args)
+	_agent.set_animation(&"walk")
 
 	var run: bool = _args.get("run", false)
 	if run:
@@ -18,7 +19,7 @@ func _on_enter(args) -> void:
 
 
 func _on_update(delta: float) -> void:
-	var direction: float = Input.get_axis(&"left", &"right")
+	var direction := Input.get_axis(&"left", &"right")
 
 	if direction:
 		if Input.is_action_pressed(&"dash"):
@@ -27,8 +28,6 @@ func _on_update(delta: float) -> void:
 		if Input.is_action_pressed(&"jump"):
 			change_state_with_next(&"Jump")
 			return
-
-		_agent._facing_direction = direction
 
 		_agent.velocity.x = move_toward(_agent.velocity.x, direction * _speed, _speed * 0.5)
 	else:

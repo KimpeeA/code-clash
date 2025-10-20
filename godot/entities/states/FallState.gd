@@ -10,6 +10,11 @@ func _on_enter(args) -> void:
 
 
 func _on_update(delta: float) -> void:
+	if _agent.velocity.y < 0.0:
+		_agent.set_animation(&"jump")
+	else:
+		_agent.set_animation(&"fall")
+
 	_agent.velocity.y += _gravity * delta
 	_agent.move_and_slide()
 

@@ -445,16 +445,11 @@ animation = &"walk"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_llv2m"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mwwg5"]
-advance_mode = 2
 advance_expression = "walk_state.active and grounded_state.active"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_15rco"]
-advance_mode = 2
-advance_expression = "run_state.active and grounded_state.active"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5qqfe"]
-advance_mode = 2
-advance_expression = "idle_state.active and grounded_state.active"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3gog7"]
 
@@ -463,14 +458,10 @@ advance_expression = "idle_state.active and grounded_state.active"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8n7k5"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sk81y"]
-switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vq287"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5d35a"]
-switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_uwghf"]
 states/End/position = Vector2(789.333, 92.3939)
@@ -492,7 +483,7 @@ states/run/position = Vector2(570.862, -45.427)
 states/walk/node = SubResource("AnimationNodeAnimation_llv2m")
 states/walk/position = Vector2(367.094, -131.821)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_sghct"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_0s35q"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_mrbje"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_a07hc"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_t6a0t"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_i74lf"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_snonw"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_rlytp"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_m8h0s"), "dash", "run", SubResource("AnimationNodeStateMachineTransition_vra06"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_osepa"), "dash", "idle", SubResource("AnimationNodeStateMachineTransition_xlkdc"), "idle", "dash", SubResource("AnimationNodeStateMachineTransition_0aqgn"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_llv2m"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_mwwg5"), "fall", "run", SubResource("AnimationNodeStateMachineTransition_15rco"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_5qqfe"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_3gog7"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_ow3cj"), "idle", "attack_1", SubResource("AnimationNodeStateMachineTransition_8n7k5"), "attack_1", "idle", SubResource("AnimationNodeStateMachineTransition_sk81y"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_vq287"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_5d35a")]
-graph_offset = Vector2(-12.573, -67.608)
+graph_offset = Vector2(-12.573, -41.4479)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlytp"]
 size = Vector2(12, 17)
@@ -503,7 +494,7 @@ size = Vector2(12, 17)
 [sub_resource type="GDScript" id="GDScript_sk81y"]
 resource_name = "XSM"
 script/source = "@tool
-class_name Xsm
+class_name XSM
 extends EntityState
 
 
@@ -512,7 +503,7 @@ func _on_enter(args) -> void:
 
 
 func _on_update(delta: float) -> void:
-	pass
+	_agent.direction_change(Input.get_axis(&\"left\", &\"right\"))
 "
 
 [node name="Player" type="CharacterBody2D"]
@@ -560,6 +551,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+process_mode = 4
 root_node = NodePath("../Sprite")
 tree_root = SubResource("AnimationNodeStateMachine_uwghf")
 advance_expression_base_node = NodePath("..")
