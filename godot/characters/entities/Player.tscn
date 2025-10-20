@@ -1,6 +1,7 @@
-[gd_scene load_steps=60 format=3 uid="uid://bcbu4qmsumgm8"]
+[gd_scene load_steps=61 format=3 uid="uid://bcbu4qmsumgm8"]
 
 [ext_resource type="Script" uid="uid://bruyed1adjbtk" path="res://godot/entities/Entity.gd" id="1_s5pnv"]
+[ext_resource type="Resource" uid="uid://cn2lrsmx3i3wh" path="res://godot/resources/default.tres" id="2_30ba4"]
 [ext_resource type="PackedScene" uid="uid://t1cq0num0y7h" path="res://godot/characters/sprites/LuneBlade.tscn" id="5_h78px"]
 [ext_resource type="Script" uid="uid://vnnmpj04p4ou" path="res://godot/entities/states/MoveState.gd" id="8_sk81y"]
 [ext_resource type="Script" uid="uid://b4u3mgct6ogaj" path="res://godot/entities/states/FallState.gd" id="9_8n7k5"]
@@ -510,6 +511,7 @@ func _on_update(delta: float) -> void:
 collision_mask = 3
 input_pickable = true
 script = ExtResource("1_s5pnv")
+_stats = ExtResource("2_30ba4")
 metadata/_edit_group_ = true
 
 [node name="Status" type="Label" parent="."]
@@ -628,6 +630,7 @@ metadata/_custom_type_script = "uid://r7wj8xf4sp1a"
 
 [node name="Fall" type="Node" parent="XSM/Transient"]
 script = ExtResource("9_8n7k5")
+_gravity = 980.0
 disabled = false
 debug_mode = false
 target_path = NodePath("../../..")

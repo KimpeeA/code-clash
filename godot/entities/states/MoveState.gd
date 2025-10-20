@@ -2,8 +2,6 @@
 class_name MoveState
 extends EntityState
 
-var _walk_speed := 140.0
-var _run_speed := 220.0
 var _speed := 0.0
 var _dir := 0.0
 
@@ -21,9 +19,9 @@ func _on_enter(args) -> void:
 
 	var run: bool = _args.get("run", false)
 	if run:
-		_speed = _run_speed
+		_speed = _agent._stats.run_speed
 	else:
-		_speed = _walk_speed
+		_speed = _agent._stats.walk_speed
 
 	_agent._facing_direction = _dir
 

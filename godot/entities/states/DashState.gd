@@ -2,9 +2,6 @@
 class_name DashState
 extends EntityState
 
-@export var _default_distance := 50.0
-@export var _default_duration := 0.25
-
 var _dash_add := 0.0  # how much extra speed to apply
 var _decel_along := 0.0  # decay rate of dash_add
 var _previous_velocity := 0.0
@@ -15,8 +12,8 @@ func _on_enter(args) -> void:
 	super(args)
 	_agent.set_animation(&"dash")
 
-	var distance = float(_args.get("distance", _default_distance))
-	var duration = float(_args.get("duration", _default_duration))
+	var distance := _agent._stats.dash_distance
+	var duration := _agent._stats.dash_duration
 	if duration <= 0.0:
 		change_state(&"Persistent")
 		return
@@ -32,7 +29,11 @@ func _on_enter(args) -> void:
 
 
 func _on_update(delta: float) -> void:
-	print("vel: {}, prev_vel: {}, face_dir: {}, dir: {}".format([_agent.velocity, _previous_velocity, _agent._facing_direction, _dir], "{}"))
+	print(
+		"vel: {}, prev_vel: {}, face_dir: {}, dir: {}".format(
+			[_agent.velocity, _previous_velocity, _agent._facing_direction, _dir], "{}"
+		)
+	)
 
 	# total horizontal velocity = previous velocity + dash boost
 	_agent.velocity.x = _previous_velocity + _dir * _dash_add

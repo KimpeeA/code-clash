@@ -2,7 +2,7 @@
 class_name FallState
 extends EntityState
 
-@export var _gravity := 980.0
+@export var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _on_enter(args) -> void:
