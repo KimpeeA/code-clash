@@ -23,7 +23,7 @@ func _init(env: JSEnvironment) -> void:
 
 
 #func resume() -> void:
-	#_env.resume()
+#_env.resume()
 
 
 func enter() -> void:

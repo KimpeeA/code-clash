@@ -47,7 +47,6 @@ func load_session() -> bool:
 		return true
 
 
-
 func login(p_email: String, password: String) -> String:
 	var task: AuthTask = Supabase.auth.sign_in(p_email, password)
 	task = await task.completed
@@ -81,8 +80,6 @@ func login_anon() -> String:
 
 
 func start_offline() -> String:
-	_user = SupabaseUser.new({
-		"email": "Offline"
-	})
+	_user = SupabaseUser.new({"email": "Offline"})
 	await get_tree().create_timer(0).timeout
 	return "Success"

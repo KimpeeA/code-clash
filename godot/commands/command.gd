@@ -27,6 +27,7 @@ func _reset_signal(p_signal: Array[Signal]) -> void:
 		for conn: Dictionary in _signal.get_connections():
 			_signal.disconnect(conn["callable"] as Callable)
 
+
 func reset() -> void:
 	_reset_signal([actived, idled, completed])
 	_status = Status.Complete
@@ -46,6 +47,7 @@ func is_active(actor) -> bool:
 
 func is_idle(actor) -> bool:
 	return _status == Status.Idle
+
 
 # TODO: rename this to is_complete
 func is_completed(actor) -> bool:
@@ -69,6 +71,10 @@ func _to_complete() -> void:
 
 func get_var(msg: Dictionary, var_name: StringName, expected_type: Variant.Type) -> Variant:
 	assert(msg.has(var_name), "{0} is expected.".format([var_name]))
-	assert(typeof(msg[var_name]) == expected_type, "{0} is expected to be of type {1}, but got {2}."
-		.format([var_name, expected_type, type_string(typeof(msg[var_name]))]))
+	assert(
+		typeof(msg[var_name]) == expected_type,
+		"{0} is expected to be of type {1}, but got {2}.".format(
+			[var_name, expected_type, type_string(typeof(msg[var_name]))]
+		)
+	)
 	return msg[var_name]

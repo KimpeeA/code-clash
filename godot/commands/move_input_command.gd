@@ -1,7 +1,6 @@
 class_name MoveInputCommand
 extends Command
 
-
 var _sprite: AnimatedSprite2D
 var _speed: float = 0
 var _direction: float = 0

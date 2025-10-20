@@ -2,9 +2,7 @@
 class_name JumpState
 extends EntityState
 
-
-@export
-var _default_jump_force := 200.0
+@export var _default_jump_force := 200.0
 
 var _jump_force := 0.0  # positive = upward
 
@@ -19,4 +17,4 @@ func _on_enter(args) -> void:
 
 
 func _after_enter(args) -> void:
-	change_state(&"Fall")
+	change_state_with_next(&"Fall", next_state)

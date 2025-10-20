@@ -3,39 +3,26 @@ extends CharacterBody2D
 
 var _health: float = 100.0
 
-@export
-var _code_edit: TextEdit
-@export
-var _run_button: Button
-@export
-var _stats: EntityStats
+@export var _code_edit: TextEdit
+@export var _run_button: Button
+@export var _stats: EntityStats
 
-@onready
-var _anim_tree: AnimationTree = $AnimationTree
-@onready
-var _anim_tree_fsm: AnimationNodeStateMachinePlayback = _anim_tree["parameters/playback"]
-@onready
-var _sprite: AnimatedSprite2D = $Sprite
+@onready var _anim_tree: AnimationTree = $AnimationTree
+@onready var _anim_tree_fsm: AnimationNodeStateMachinePlayback = _anim_tree["parameters/playback"]
+@onready var _sprite: AnimatedSprite2D = $Sprite
 
-@onready
-var _idle_state: State = $XSM/Locomotion/Idle
-@onready
-var _walk_state: State = $XSM/Locomotion/Walk
-@onready
-var _run_state: State = $XSM/Locomotion/Run
-@onready
-var _dash_state: State = $XSM/Locomotion/Dash
+@onready var _idle_state: State = $XSM/Persistent/Idle
+@onready var _move_state: State = $XSM/Persistent/Move
 
-@onready
-var _locomotion_state: State = $XSM/Locomotion
+@onready var _dash_state: State = $XSM/Transient/Dash
 
-@onready
-var _hit_box: HitBox = $Sprite/HitBox
-@onready
-var _status_label: Label = $Status
+@onready var _persistent_state: State = $XSM/Persistent
+@onready var _transient_state: State = $XSM/Transient
 
-@onready
-var _xsm: State = $XSM
+@onready var _hit_box: HitBox = $Sprite/HitBox
+@onready var _status_label: Label = $Status
+
+@onready var _xsm: State = $XSM
 
 var _mouse_entered := false
 
@@ -61,9 +48,9 @@ func _on_mouse_exited() -> void:
 
 
 func take_damage(damage: float) -> void:
-	if _idle_state.active or _walk_state.active or _run_state.active:
+	if _idle_state.active or _move_state.active:
 		_health -= damage
-		_locomotion_state.change_state(&"Hurt")
+		_persistent_state.change_state(&"Hurt")
 
 
 func _on_hurt_box_area_entered(area: HitBox) -> void:

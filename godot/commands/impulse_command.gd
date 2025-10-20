@@ -5,12 +5,13 @@ var acceleration: float
 var direction: Vector2
 var last_velocity: Vector2
 
+
 func initialize(actor: CharacterBody2D, msg: Dictionary = {}) -> void:
 	assert(msg.has("magnitude") and msg["magnitude"] is float)
 	assert(msg.has("time_to_peak") and msg["time_to_peak"] is float)
 	assert(msg.has("direction") and msg["direction"] is Vector2)
 
-	var magnitude: float = msg["magnitude"] # how far to travel in that direction
+	var magnitude: float = msg["magnitude"]  # how far to travel in that direction
 	var time_to_peak: float = msg["time_to_peak"]
 	var preserve_velocity: bool = msg.get("preserve_velocity", false)
 	direction = (msg["direction"] as Vector2).normalized()

@@ -8,16 +8,14 @@ func _on_enter(args) -> void:
 
 
 func _on_update(_delta: float) -> void:
-	if Input.is_action_just_pressed(&"dash"):
-		var dash_state := get_state(&"Dash")
-		dash_state.next_state = self.get_path()
-		change_state(&"Dash")
+	if Input.is_action_pressed(&"dash"):
+		change_state_with_next(&"Dash")
 
 	if Input.get_axis(&"left", &"right"):
-		change_state(&"Walk")
+		change_state(&"Move")
 
 	if Input.is_action_pressed(&"jump"):
 		change_state(&"Jump")
 
 	if not _agent.is_on_floor():
-		change_state(&"Fall")
+		change_state_with_next(&"Fall")

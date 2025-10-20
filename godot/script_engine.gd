@@ -7,8 +7,8 @@ var _run: Button
 
 var _input: SimulateInput
 var input: SimulateInput:
-	get: return _input
-
+	get:
+		return _input
 
 var _pending_code: String = ""
 
@@ -19,8 +19,7 @@ func _init(entity: EntityPlayer, code_edit: TextEdit, run_btn: Button) -> void:
 	_run = run_btn
 
 	_input = SimulateInput.new(_entity, self)
-	_input.env.finished.connect(func() -> void:
-		_pending_code = "")
+	_input.env.finished.connect(func() -> void: _pending_code = "")
 
 
 func ready(code: String) -> void:
