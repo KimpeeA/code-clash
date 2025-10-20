@@ -580,7 +580,7 @@ history_size = 0
 history_mode = 1
 disabled = false
 debug_mode = true
-target_path = NodePath("")
+target_path = NodePath("..")
 timed = false
 remember_active_substate = false
 next_state = NodePath("")
@@ -592,8 +592,8 @@ disabled = false
 debug_mode = false
 target_path = NodePath("../..")
 timed = false
-remember_active_substate = false
-next_state = NodePath("")
+remember_active_substate = true
+next_state = NodePath("../Transient")
 metadata/_custom_type_script = "uid://r7wj8xf4sp1a"
 
 [node name="Idle" type="Node" parent="XSM/Persistent"]

@@ -19,5 +19,5 @@ func _on_update(delta: float) -> void:
 	_agent.move_and_slide()
 
 	if _agent.is_on_floor():
-		change_to_next()
+		change_state(&"Persistent")
 		return

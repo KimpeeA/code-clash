@@ -29,7 +29,7 @@ var _mouse_entered := false
 
 var _facing_direction := 1.0:
 	set(value):
-		_facing_direction = sign(value)
+		_facing_direction = signf(value)
 
 
 func _ready() -> void:
@@ -75,6 +75,7 @@ func set_animation(animation_name: StringName) -> void:
 
 
 func direction_change(new_direction: float) -> void:
+	new_direction = signf(new_direction)
 	if is_equal_approx(_facing_direction, new_direction):
 		return
 
