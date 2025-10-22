@@ -6,7 +6,7 @@
 
 ## Documents
 
-[Game Document](Game%20Document.md) - Full detailed documentation of game features.
+[Game Document](GameDocument.md) - Full detailed documentation of game features.
 
 [Programming Concepts](docs/Concepts.md) - List of *programming concepts* to be taught in the game.
 
