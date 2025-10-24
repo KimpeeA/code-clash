@@ -374,6 +374,8 @@ text = "Return to Main Menu"
 [connection signal="pressed" from="UIContainer/MainMenu/VBoxContainer/MainButtons/LeaderboardButton" to="UIContainer" method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="UIContainer/MainMenu/VBoxContainer/MainButtons/SettingsButton" to="UIContainer" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="UIContainer/MainMenu/VBoxContainer/MainButtons/QuitButton" to="UIContainer" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UIContainer/CustomizationMenu/ReturnToMenu" to="UIContainer" method="_main_menu_visible"]
+[connection signal="pressed" from="UIContainer/LeaderboardsMenu/ReturnToMenu" to="UIContainer" method="_main_menu_visible"]
 [connection signal="pressed" from="UIContainer/SettingsMenu/VBoxContainer/HBoxContainer/Music_Button" to="UIContainer/SettingsMenu/VBoxContainer/HBoxContainer/Music_Button" method="_on_pressed"]
 [connection signal="value_changed" from="UIContainer/SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer/MusicControl" to="UIContainer/SettingsMenu/VBoxContainer/HBoxContainer/VBoxContainer/MusicControl" method="_on_value_changed"]
 [connection signal="pressed" from="UIContainer/SettingsMenu/VBoxContainer/HBoxContainer2/SFX_Button" to="UIContainer/SettingsMenu/VBoxContainer/HBoxContainer2/SFX_Button" method="_on_pressed"]
